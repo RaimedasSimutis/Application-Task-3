@@ -37,8 +37,9 @@ export default {
   props: {
     msg: String
   },
-  created () {
-    this.$store.dispatch('fetchWeather', 'Vilnius')
+  async created () {
+    await this.$store.dispatch('getUserLocation')
+    // this.$store.dispatch('fetchWeather', 'Vilnius')
   }
 }
 </script>
