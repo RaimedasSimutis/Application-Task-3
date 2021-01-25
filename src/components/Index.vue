@@ -36,6 +36,9 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  created () {
+    this.$store.dispatch('fetchWeather', 'Vilnius')
   }
 }
 </script>
