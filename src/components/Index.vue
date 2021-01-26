@@ -1,34 +1,40 @@
 <template>
   <div class="container">
-    <nav class="navbar">Navigation</nav>
-    <section class="forecast-day">
-
-    </section>
-    <section class="forecast-current">
-      <div class="forecast-day__temperature">
-        6
-      </div>
-      <div class="forecast-day__city">
-        Vilnius
-      </div>
-      <div class="forecast-day__weather">
-        Foggy
-      </div>
-    </section>
+    <navigation-bar/>
+    <day-forecast :stats="currentWeatherTemp"/>
+    <current-weather
+      location="Vilnius"
+      temperature="6"
+      icon="empty"
+      description="cloudy"
+    />
     <week-forecast title="Week forecast" :weatherData="testData"/>
   </div>
 </template>
 
 <script>
 import WeekForecast from './WeekForecast'
+import CurrentWeather from './CurrentWeather'
+import DayForecast from './DayForecast'
+import NavigationBar from './NavigationBar'
 export default {
   name: 'HelloWorld',
-  components: { WeekForecast },
+  components: { NavigationBar, DayForecast, CurrentWeather, WeekForecast },
   props: {
     msg: String
   },
   data () {
     return {
+      currentWeatherTemp: [
+        {
+          value: 8,
+          customClass: ''
+        },
+        {
+          value: 2,
+          customClass: ''
+        }
+      ],
       testData: [
         {
           day: 'MON',
@@ -89,6 +95,7 @@ export default {
   height: 35px;
   background: #3A424C;
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -97,15 +104,6 @@ export default {
 
 .forecast-day {
 
-}
-
-.forecast-current {
-  flex-grow: 1;
-  background: #ec0855;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 </style>
