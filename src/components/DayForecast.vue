@@ -4,14 +4,14 @@
       {{ title }}
     </div>
 
-    <div class="forecast-day__stats">
+    <div class="forecast-day__records">
       <div
-        class=""
-        :class="stat.customClass"
-        v-for="(stat, index) in stats"
+        v-for="(record, index) in records"
         :key="index"
+        class="forecast-day__record"
+        :class="record.customClass"
       >
-        {{stat.value}}
+        {{record.value}}
       </div>
     </div>
   </section>
@@ -33,6 +33,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
+  .forecast-day {
+
+  }
 </style>

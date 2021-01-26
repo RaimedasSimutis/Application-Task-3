@@ -1,20 +1,26 @@
 <template>
   <section class="current-weather">
     <div class="current-weather__temperature">
-      6
+      {{temperature}}
     </div>
     <div class="current-weather__city">
-      Vilnius
+      {{location}}
     </div>
     <div class="current-weather__weather">
-      Foggy
+      {{description}} {{icon}}
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'CurrentWeather'
+  name: 'CurrentWeather',
+  props: {
+    location: String,
+    temperature: String,
+    icon: String,
+    description: String
+  }
 }
 </script>
 

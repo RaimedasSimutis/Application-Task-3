@@ -3,10 +3,10 @@
     <navigation-bar/>
     <day-forecast :stats="currentWeatherTemp"/>
     <current-weather
-      location="Vilnius"
-      temperature="6"
-      icon="empty"
-      description="cloudy"
+      :location="currentCityData.location"
+      :temperature="currentCityData.temperature"
+      :icon="currentCityData.icon"
+      :description="currentCityData.description"
     />
     <week-forecast title="Week forecast" :weatherData="testData"/>
   </div>
@@ -18,7 +18,7 @@ import CurrentWeather from './CurrentWeather'
 import DayForecast from './DayForecast'
 import NavigationBar from './NavigationBar'
 export default {
-  name: 'HelloWorld',
+  name: 'Index',
   components: { NavigationBar, DayForecast, CurrentWeather, WeekForecast },
   props: {
     msg: String
@@ -82,6 +82,21 @@ export default {
 
     }
   },
+  computed: {
+    currentCityData () {
+      const data = this.$store.state.currentWeatherData
+
+      if (data) {
+        return {
+          location: data.name,
+          temperature: data.main.temp,
+          icon: data.weather[0].icon,
+          description: data.weather[0].main
+        }
+      }
+      return {}
+    }
+  },
   async created () {
     await this.$store.dispatch('getUserLocation')
     // this.$store.dispatch('fetchWeather', 'Vilnius')
@@ -100,10 +115,6 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-.forecast-day {
-
 }
 
 </style>
