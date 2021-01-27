@@ -37,13 +37,13 @@ export default {
       CITIES_LIST,
       CITIES_TEST,
       leftNavButtonData: {
-        title: 'left',
-        icon: '',
+        title: '',
+        icon: 'fa-cloud',
         callback: this.onLeftNavClick
       },
       rightNavButtonData: {
-        title: 'right',
-        icon: '',
+        title: '',
+        icon: 'fa-cog',
         callback: this.onRightNavClick
       },
       currentWeatherTemp: [

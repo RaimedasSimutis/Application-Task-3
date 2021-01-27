@@ -2,7 +2,10 @@
   <nav class="navbar">
     <div class="navbar__button-container">
       <a v-if="leftButtonData" @click="buttonClick('left')">
-        {{leftButtonData.title}}
+        <i v-if="leftButtonData.icon" class="fas" :class="leftButtonData.icon"></i>
+        <span v-if="leftButtonData.title">
+          {{leftButtonData.title}}
+        </span>
       </a>
     </div>
     <div class="navbar__middle-container">
@@ -14,8 +17,11 @@
       </div>
     </div>
     <div class="navbar__button-container">
-      <a v-if="rightButtonData" @click="buttonClick('left')">
-        {{rightButtonData.title}}
+      <a v-if="rightButtonData" @click="buttonClick('right')">
+        <i v-if="rightButtonData.icon" class="fas" :class="rightButtonData.icon"></i>
+        <span v-if="rightButtonData.title">
+          {{rightButtonData.title}}
+        </span>
       </a>
     </div>
 
