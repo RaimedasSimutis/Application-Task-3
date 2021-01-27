@@ -6,7 +6,7 @@
 
     <div class="forecast-day__records">
       <div
-        v-for="(record, index) in records"
+        v-for="(record, index) in stats"
         :key="index"
         class="forecast-day__record"
         :class="record.customClass"

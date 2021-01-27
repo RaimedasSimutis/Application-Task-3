@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <navigation-bar/>
+    <navigation-bar @leftButtonClick="onLeftNavClick"/>
     <day-forecast :stats="currentWeatherTemp"/>
     <current-weather
       :location="currentCityData.location"
@@ -9,6 +9,7 @@
       :description="currentCityData.description"
     />
     <week-forecast title="Week forecast" :weatherData="testData"/>
+    <search ref="search-ref" :options="CITIES_TEST"/>
   </div>
 </template>
 
@@ -17,14 +18,25 @@ import WeekForecast from './WeekForecast'
 import CurrentWeather from './CurrentWeather'
 import DayForecast from './DayForecast'
 import NavigationBar from './NavigationBar'
+import Search from './Search'
+import CITIES_LIST from '../citiesList.json'
+import CITIES_TEST from '../citiesTest.json'
+
 export default {
   name: 'Index',
-  components: { NavigationBar, DayForecast, CurrentWeather, WeekForecast },
+  components: { Search, NavigationBar, DayForecast, CurrentWeather, WeekForecast },
   props: {
     msg: String
   },
   data () {
     return {
+      CITIES_LIST,
+      CITIES_TEST,
+      leftNavButtonData: {
+        title: 'settings',
+        icon: '',
+        callback: this.onLeftNavClick
+      },
       currentWeatherTemp: [
         {
           value: 8,
@@ -100,6 +112,12 @@ export default {
   async created () {
     await this.$store.dispatch('getUserLocation')
     // this.$store.dispatch('fetchWeather', 'Vilnius')
+  },
+  methods: {
+    onLeftNavClick () {
+      console.log('nav click')
+      this.$refs['search-ref'].openSearch()
+    }
   }
 }
 </script>
@@ -115,6 +133,7 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
 }
 
 </style>
