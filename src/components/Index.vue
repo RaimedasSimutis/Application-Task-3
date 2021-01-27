@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <navigation-bar @leftButtonClick="onLeftNavClick"/>
+    <navigation-bar
+      :left-button-data="leftNavButtonData"
+      :right-button-data="rightNavButtonData"
+      @leftButtonClick="onLeftNavClick"
+    />
     <day-forecast :stats="currentWeatherTemp"/>
     <current-weather
       :location="currentCityData.location"
@@ -33,9 +37,14 @@ export default {
       CITIES_LIST,
       CITIES_TEST,
       leftNavButtonData: {
-        title: 'settings',
+        title: 'left',
         icon: '',
         callback: this.onLeftNavClick
+      },
+      rightNavButtonData: {
+        title: 'right',
+        icon: '',
+        callback: this.onRightNavClick
       },
       currentWeatherTemp: [
         {
@@ -115,8 +124,12 @@ export default {
   },
   methods: {
     onLeftNavClick () {
-      console.log('nav click')
+      console.log('left click')
       this.$refs['search-ref'].openSearch()
+    },
+    onRightNavClick () {
+      console.log('right click')
+      // this.$refs['search-ref'].openSearch()
     }
   }
 }
@@ -124,10 +137,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.navbar {
-  height: 35px;
-  background: #3A424C;
-}
 
 .container {
   display: flex;

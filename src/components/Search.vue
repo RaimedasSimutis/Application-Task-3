@@ -1,11 +1,15 @@
 <template>
   <section class="search" v-show="isActive">
+    <navigation-bar
+      :leftButtonData="leftNavButtonData"
+      @leftButtonClick="closeSearch"
+    />
     <div>
       <input v-model="inputValue" :placeholder="placeholder">
     </div>
     <div>
       <div v-if="results">
-        <div v-for="(result, index) in results" :key="index" @click="$emit('citySelected', result)">
+        <div v-for="(result, index) in results" :key="index" @click="closeSearch(result)">
           {{result.name}}
         </div>
       </div>
@@ -17,8 +21,10 @@
 </template>
 
 <script>
+import NavigationBar from './NavigationBar'
 export default {
   name: 'Search',
+  components: { NavigationBar },
   props: {
     options: {
       type: Array,
@@ -37,7 +43,11 @@ export default {
     return {
       // results: null,
       inputValue: '',
-      isActive: false
+      isActive: false,
+      leftNavButtonData: {
+        title: 'Done',
+        icon: ''
+      }
     }
   },
   computed: {
