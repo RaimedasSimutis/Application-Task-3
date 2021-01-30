@@ -1,14 +1,14 @@
 <template>
-  <section class="forecast-day">
-    <div class="forecast-day__title">
+  <section class="title-with-stats">
+    <div class="title-with-stats__title">
       {{ title }}
     </div>
 
-    <div class="forecast-day__records">
+    <div class="title-with-stats__records">
       <div
         v-for="(record, index) in stats"
         :key="index"
-        class="forecast-day__record"
+        class="title-with-stats__record"
         :class="record.customClass"
       >
         {{record.value}}
@@ -35,7 +35,17 @@ export default {
 
 <style scoped lang="scss">
 
-  .forecast-day {
+  .title-with-stats {
+    background-color: $bg-grey;
+    display: flex;
+    justify-content: space-between;
 
+    &__records {
+      display: flex;
+    }
+
+    &__record {
+      margin-left: 12px;
+    }
   }
 </style>
