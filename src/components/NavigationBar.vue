@@ -65,6 +65,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      color: #54C9F9;
     }
 
     &__middle-container {
@@ -74,6 +75,5 @@ export default {
       justify-content: center;
       align-items: center;
     }
-
   }
 </style>

@@ -3,6 +3,10 @@
 /* Document
    ========================================================================== */
 
+* {
+    box-sizing: border-box;
+}
+
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -166,6 +170,7 @@ textarea {
     font-size: 100%; /* 1 */
     line-height: 1.15; /* 1 */
     margin: 0; /* 2 */
+    outline: none
 }
 
 /**
