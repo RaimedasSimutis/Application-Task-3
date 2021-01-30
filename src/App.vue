@@ -18,7 +18,8 @@ export default {
 
 <style lang="scss">
   @import "styles/normalize.css";
-  @import "styles/transitions.scss";
+  @import "styles/style.scss";
+
 #app {
   width: 100vw;
   height: 100vh;
