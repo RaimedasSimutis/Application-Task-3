@@ -5,7 +5,7 @@
       :right-button-data="rightNavButtonData"
       @leftButtonClick="onLeftNavClick"
     />
-    <day-forecast :stats="currentWeatherTemp"/>
+    <title-with-stats :stats="currentWeatherTemp"/>
     <current-weather
       :location="currentCityData.location"
       :temperature="currentCityData.temperature"
@@ -20,15 +20,15 @@
 <script>
 import WeekForecast from './WeekForecast'
 import CurrentWeather from './CurrentWeather'
-import DayForecast from './DayForecast'
 import NavigationBar from './NavigationBar'
 import Search from './Search'
 import CITIES_LIST from '../citiesList.json'
 import CITIES_TEST from '../citiesTest.json'
+import TitleWithStats from './TitleWithStats'
 
 export default {
   name: 'Index',
-  components: { Search, NavigationBar, DayForecast, CurrentWeather, WeekForecast },
+  components: { TitleWithStats, Search, NavigationBar, CurrentWeather, WeekForecast },
   props: {
     msg: String
   },

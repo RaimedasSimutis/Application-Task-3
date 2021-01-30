@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'DayForecast',
+  name: 'TitleWithStats',
   props: {
     title: {
       type: String,
