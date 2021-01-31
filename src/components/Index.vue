@@ -7,6 +7,7 @@
       title="Weather Forecast"
       :subtitle="currentCityData.location"
       @leftButtonClick="onLeftNavClick"
+      @rightButtonClick="onRightNavClick"
     />
     <title-with-stats
       title="Day forecast"
@@ -96,12 +97,10 @@ export default {
     weekForecastData () {
       const { forecastWeatherData } = this.$store.state
       if (forecastWeatherData) {
-        // create shallow copy of data
         const forecastData = [...forecastWeatherData]
         forecastData.shift()
 
         return forecastData.map((weekday) => {
-          // find day of the week
           const dayIndex = new Date(weekday.dt * 1000).getDay()
 
           return {
@@ -118,26 +117,21 @@ export default {
   },
   async created () {
     await this.$store.dispatch('getUserLocation')
-    // this.$store.dispatch('fetchWeather', 'Vilnius')
   },
   methods: {
     onLeftNavClick () {
-      console.log('left click')
       this.$refs['search-ref'].openSearch()
     },
     onRightNavClick () {
-      console.log('right click')
-      // this.$refs['search-ref'].openSearch()
+      this.$refs['search-ref'].openSearch()
     },
     citySelected (cityData) {
-      // console.log(cityData)
       this.$store.dispatch('fetchWeather', { ...cityData.coord, name: cityData.name })
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
 .container {

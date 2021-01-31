@@ -11,7 +11,6 @@
         <input class="search__input" v-model="inputValue" :placeholder="placeholder">
         <div class="search__icon-container">
           <i class="fas fa-search search__input-icon"></i>
-
         </div>
       </div>
       <div class="search__results-container">
@@ -25,9 +24,7 @@
             <div class="search__result-text"
                  v-html="highlightMatchingText(result.name)"
             >
-
             </div>
-<!--            {{highlightMatchingText(result.name)}}-->
           </div>
         </div>
         <div class="search__no-results" v-else>
@@ -69,7 +66,8 @@ export default {
       isActive: false,
       leftNavButtonData: {
         title: 'Done',
-        icon: ''
+        icon: '',
+        customTitleClass: 'fs-14'
       }
     }
   },
@@ -90,7 +88,6 @@ export default {
           }
         }
 
-        console.log(filterResults)
         return filterResults.length ? filterResults : null
       }
       return null
@@ -104,6 +101,7 @@ export default {
       if (selectedData) {
         this.$emit('selected', selectedData)
       }
+      this.inputValue = ''
       this.isActive = false
     },
     highlightMatchingText (name) {
@@ -130,6 +128,8 @@ export default {
     top: 0;
     right: 0;
     background-color: #4E555E;
+    display: flex;
+    flex-direction: column;
 
     &__input-container {
       padding: 7px;
@@ -160,7 +160,6 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-
     }
 
     &__input-icon {
@@ -174,6 +173,7 @@ export default {
 
     &__results {
       padding-left: 15px;
+      flex-grow: 1;
     }
 
     &__result-row {
@@ -182,7 +182,6 @@ export default {
       display: flex;
       align-items: center;
       font-size: 12px;
-
     }
 
     &__result-text {

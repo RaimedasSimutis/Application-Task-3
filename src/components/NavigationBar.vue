@@ -3,7 +3,7 @@
     <div class="navbar__button-container">
       <a v-if="leftButtonData" @click="buttonClick('left')">
         <i v-if="leftButtonData.icon" class="fas" :class="leftButtonData.icon"></i>
-        <span v-if="leftButtonData.title">
+        <span v-if="leftButtonData.title" :class="leftButtonData.customTitleClass">
           {{leftButtonData.title}}
         </span>
       </a>
@@ -19,7 +19,7 @@
     <div class="navbar__button-container">
       <a v-if="rightButtonData" @click="buttonClick('right')">
         <i v-if="rightButtonData.icon" class="fas" :class="rightButtonData.icon"></i>
-        <span v-if="rightButtonData.title">
+        <span v-if="rightButtonData.title" :class="rightButtonData.customTitleClass">
           {{rightButtonData.title}}
         </span>
       </a>
@@ -66,7 +66,6 @@ export default {
     justify-content: space-between;
 
     &__button-container {
-      /*flex-grow: 1;*/
       min-width: 50px;
       display: flex;
       justify-content: center;
