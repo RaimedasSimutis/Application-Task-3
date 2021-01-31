@@ -3,6 +3,8 @@
     <section class="search" v-show="isActive">
       <navigation-bar
         :leftButtonData="leftNavButtonData"
+        :title="title"
+        :subtitle="subtitle"
         @leftButtonClick="closeSearch"
       />
       <div class="search__input-container">
@@ -43,6 +45,12 @@ export default {
     noDataText: {
       type: String,
       default: 'No results'
+    },
+    title: {
+      type: String
+    },
+    subtitle: {
+      type: String
     }
   },
   data () {

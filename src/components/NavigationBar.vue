@@ -10,10 +10,10 @@
     </div>
     <div class="navbar__middle-container">
       <div class="navbar__middle-title">
-        Navigation
+        {{title}}
       </div>
       <div class="navbar__middle-subtitle">
-        None
+        {{subtitle}}
       </div>
     </div>
     <div class="navbar__button-container">
@@ -37,6 +37,12 @@ export default {
     },
     rightButtonData: {
       type: Object
+    },
+    title: {
+      type: String
+    },
+    subtitle: {
+      type: String
     }
   },
   methods: {

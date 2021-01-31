@@ -3,6 +3,8 @@
     <navigation-bar
       :left-button-data="leftNavButtonData"
       :right-button-data="rightNavButtonData"
+      title="Weather forecast"
+      :subtitle="currentCityData.location"
       @leftButtonClick="onLeftNavClick"
     />
     <title-with-stats
@@ -15,8 +17,16 @@
       :icon="currentCityData.icon"
       :description="currentCityData.description"
     />
-    <week-forecast title="Week forecast" :weatherData="weekForecastData"/>
-    <search ref="search-ref" :options="CITIES_TEST" @selected="citySelected"/>
+    <week-forecast
+      title="Week forecast"
+      :weatherData="weekForecastData"
+    />
+    <search
+      ref="search-ref"
+      title="Location"
+      :subtitle="currentCityData.location"
+      :options="CITIES_TEST" @selected="citySelected"
+    />
   </div>
 </template>
 
