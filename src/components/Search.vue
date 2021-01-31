@@ -65,7 +65,6 @@ export default {
         const filterResults = []
 
         for (let index = 0; index < this.options.length; index++) {
-          console.log(this.options[index])
           const optionName = this.options[index].name.toLowerCase()
 
           if (optionName.includes(this.inputValue.toLowerCase())) {
@@ -88,7 +87,7 @@ export default {
     },
     closeSearch (selectedData) {
       if (selectedData) {
-        this.$emit('citySelected', selectedData)
+        this.$emit('selected', selectedData)
       }
       this.isActive = false
     }

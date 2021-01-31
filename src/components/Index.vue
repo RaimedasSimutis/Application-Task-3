@@ -16,7 +16,7 @@
       :description="currentCityData.description"
     />
     <week-forecast title="Week forecast" :weatherData="weekForecastData"/>
-    <search ref="search-ref" :options="CITIES_TEST"/>
+    <search ref="search-ref" :options="CITIES_TEST" @selected="citySelected"/>
   </div>
 </template>
 
@@ -60,7 +60,7 @@ export default {
       if (data) {
         return {
           location: data.name,
-          temperature: data.temp,
+          temperature: data.main.temp,
           icon: data.weather[0].icon,
           description: data.weather[0].main
         }
@@ -68,23 +68,23 @@ export default {
       return {}
     },
     currentDayTemperature () {
-      const { dailyWeatherData } = this.$store.state
+      const { forecastWeatherData } = this.$store.state
       return [
         {
-          value: dailyWeatherData ? Math.round(dailyWeatherData[0].temp.day) : '-',
+          value: forecastWeatherData ? Math.round(forecastWeatherData[0].temp.day) : '-',
           customClass: ''
         },
         {
-          value: dailyWeatherData ? Math.round(dailyWeatherData[0].temp.night) : '-',
+          value: forecastWeatherData ? Math.round(forecastWeatherData[0].temp.night) : '-',
           customClass: ''
         }
       ]
     },
     weekForecastData () {
-      const { dailyWeatherData } = this.$store.state
-      if (dailyWeatherData) {
+      const { forecastWeatherData } = this.$store.state
+      if (forecastWeatherData) {
         // create shallow copy of data
-        const forecastData = [...dailyWeatherData]
+        const forecastData = [...forecastWeatherData]
         forecastData.shift()
 
         return forecastData.map((weekday) => {
@@ -115,6 +115,10 @@ export default {
     onRightNavClick () {
       console.log('right click')
       // this.$refs['search-ref'].openSearch()
+    },
+    citySelected (cityData) {
+      // console.log(cityData)
+      this.$store.dispatch('fetchWeather', { ...cityData.coord, name: cityData.name })
     }
   }
 }
