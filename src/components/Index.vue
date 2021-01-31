@@ -110,7 +110,7 @@ export default {
       if (data) {
         return {
           location: data.name,
-          temperature: data.main.temp,
+          temperature: data.temp,
           icon: data.weather[0].icon,
           description: data.weather[0].main
         }

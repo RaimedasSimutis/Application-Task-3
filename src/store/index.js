@@ -11,22 +11,21 @@ export default new Vuex.Store({
       lon: 25.2797
     },
     currentWeatherData: null,
+    dailyWeatherData: null,
     currentCity: null,
     geolocationOptions: {
       enableHighAccuracy: true,
       timeout: 5000,
       maximumAge: 0
-    },
-    temperatureUnit: 'celsius'
+    }
+    // temperatureUnit: 'celsius'
   },
   getters: {
-    doneTodos: state => {
-      return state.todos.filter(todo => todo.done)
-    }
   },
   mutations: {
     SET_WEATHER (state, payload) {
-      state.currentWeatherData = payload
+      state.currentWeatherData = payload.current
+      state.dailyWeatherData = payload.daily
     },
     SET_CITY_CORDS (state, payload) {
       const { lat, lon } = payload
@@ -36,9 +35,13 @@ export default new Vuex.Store({
   actions: {
     fetchWeather ({ commit, state }) {
       const { lat, lon } = state.currentCity
-      axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.VUE_APP_WEATHER_API_KEY}`)
+      const exclude = 'minutely,hourly'
+      const key = process.env.VUE_APP_WEATHER_API_KEY
+      const units = 'metric'
+      axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&units=${units}&appid=${key}`)
         .then(response => {
-          commit('SET_WEATHER', response.data)
+          const { current, daily } = response.data
+          commit('SET_WEATHER', { current, daily })
         })
     },
     getUserLocation ({ commit, state, dispatch }) {

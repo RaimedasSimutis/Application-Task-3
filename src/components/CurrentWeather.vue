@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     convertedTemperature () {
-      return this.temperature ? Math.round(this.temperature - 273.15) : '--'
+      return this.temperature ? Math.round(this.temperature) : '--'
     },
     temperatureSign () {
       switch (this.temperatureUnit) {
