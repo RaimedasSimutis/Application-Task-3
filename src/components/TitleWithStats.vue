@@ -23,7 +23,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'Day forecast'
+      required: true
     },
     stats: {
       type: Array,

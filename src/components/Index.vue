@@ -5,7 +5,10 @@
       :right-button-data="rightNavButtonData"
       @leftButtonClick="onLeftNavClick"
     />
-    <title-with-stats :stats="currentWeatherTemp"/>
+    <title-with-stats
+      title="Day forecast"
+      :stats="currentDayTemperature"
+    />
     <current-weather
       :location="currentCityData.location"
       :temperature="currentCityData.temperature"
@@ -116,6 +119,19 @@ export default {
         }
       }
       return {}
+    },
+    currentDayTemperature () {
+      const { dailyWeatherData } = this.$store.state
+      return [
+        {
+          value: dailyWeatherData ? Math.round(dailyWeatherData[0].temp.day) : '-',
+          customClass: ''
+        },
+        {
+          value: dailyWeatherData ? Math.round(dailyWeatherData[0].temp.night) : '-',
+          customClass: ''
+        }
+      ]
     }
   },
   async created () {
