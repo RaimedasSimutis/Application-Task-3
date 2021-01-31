@@ -4,7 +4,7 @@
       {{ title }}
     </div>
 
-    <div class="title-with-stats__records">
+    <div v-if="stats" class="title-with-stats__records">
       <div
         v-for="(record, index) in stats"
         :key="index"
@@ -26,8 +26,7 @@ export default {
       required: true
     },
     stats: {
-      type: Array,
-      required: true
+      type: Array
     }
   }
 }

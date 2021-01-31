@@ -15,7 +15,7 @@
       :icon="currentCityData.icon"
       :description="currentCityData.description"
     />
-    <week-forecast title="Week forecast" :weatherData="testData"/>
+    <week-forecast title="Week forecast" :weatherData="weekForecastData"/>
     <search ref="search-ref" :options="CITIES_TEST"/>
   </div>
 </template>
@@ -27,6 +27,7 @@ import NavigationBar from './NavigationBar'
 import Search from './Search'
 import CITIES_LIST from '../citiesList.json'
 import CITIES_TEST from '../citiesTest.json'
+import WEEK_DAYS from '../weekDays.json'
 import TitleWithStats from './TitleWithStats'
 
 export default {
@@ -39,6 +40,7 @@ export default {
     return {
       CITIES_LIST,
       CITIES_TEST,
+      WEEK_DAYS,
       leftNavButtonData: {
         title: '',
         icon: 'fa-cloud',
@@ -48,62 +50,7 @@ export default {
         title: '',
         icon: 'fa-cog',
         callback: this.onRightNavClick
-      },
-      currentWeatherTemp: [
-        {
-          value: 8,
-          customClass: ''
-        },
-        {
-          value: 2,
-          customClass: ''
-        }
-      ],
-      testData: [
-        {
-          day: 'MON',
-          icon: 'O',
-          temperatureDay: 7,
-          temperatureNight: 8
-        },
-        {
-          day: 'TUS',
-          icon: 'O',
-          temperatureDay: 7,
-          temperatureNight: 8
-        },
-        {
-          day: 'WED',
-          icon: 'O',
-          temperatureDay: 7,
-          temperatureNight: 8
-        },
-        {
-          day: 'THU',
-          icon: 'O',
-          temperatureDay: 7,
-          temperatureNight: 8
-        },
-        {
-          day: 'FRI',
-          icon: 'O',
-          temperatureDay: 7,
-          temperatureNight: 8
-        },
-        {
-          day: 'SAT',
-          icon: 'O',
-          temperatureDay: 7,
-          temperatureNight: 8
-        },
-        {
-          day: 'SUN',
-          icon: 'O',
-          temperatureDay: 7,
-          temperatureNight: 8
-        }
-      ]
-
+      }
     }
   },
   computed: {
@@ -132,6 +79,28 @@ export default {
           customClass: ''
         }
       ]
+    },
+    weekForecastData () {
+      const { dailyWeatherData } = this.$store.state
+      if (dailyWeatherData) {
+        // create shallow copy of data
+        const forecastData = [...dailyWeatherData]
+        forecastData.shift()
+
+        return forecastData.map((weekday) => {
+          // find day of the week
+          const dayIndex = new Date(weekday.dt * 1000).getDay()
+
+          return {
+            day: WEEK_DAYS[dayIndex].name,
+            icon: weekday.weather[0].icon,
+            temperatureDay: Math.round(weekday.temp.day),
+            temperatureNight: Math.round(weekday.temp.night)
+          }
+        })
+      } else {
+        return []
+      }
     }
   },
   async created () {

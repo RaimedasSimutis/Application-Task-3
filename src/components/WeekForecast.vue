@@ -1,7 +1,7 @@
 <template>
   <section class="forecast-week">
-    <div v-if="title" class="forecast-week__heading">title</div>
-    <div class="forecast-week__content">
+    <title-with-stats :title="title"/>
+    <div v-if="weatherData && weatherData.length" class="forecast-week__content">
       <div
         v-for="(day, index) in weatherData"
         :key="index"
@@ -22,16 +22,20 @@
             {{day.temperatureNight}}
           </div>
         </div>
-
       </div>
+    </div>
+    <div v-else>
+      No data
     </div>
 
   </section>
 </template>
 
 <script>
+import TitleWithStats from './TitleWithStats'
 export default {
   name: 'WeekForecast',
+  components: { TitleWithStats },
   props: {
     weatherData: {
       type: Array,
@@ -47,14 +51,10 @@ export default {
 <style scoped lang="scss">
   .forecast-week {
 
-    &__heading {
-      height: 35px;
-      background: #3A424C;
-    }
-
     &__content {
       display: flex;
       justify-content: space-between;
+      background-color: $bg-grey;
     }
 
     &__stats {
