@@ -7,10 +7,10 @@
       {{location}}
     </div>
     <div class="current-weather__weather">
-      <div>
+      <div class="current-weather__weather-description">
         {{description}}
       </div>
-      <div>
+      <div class="current-weather__weather-icon">
         <img :src="`http://openweathermap.org/img/wn/${icon}.png`" alt="weather-icon"/>
       </div>
     </div>
@@ -48,16 +48,45 @@ export default {
 
   .current-weather {
     flex-grow: 1;
-    background: $bg-grey-light;
+    background: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
+    &__temperature {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    &__city {
+      font-size: 22px;
+    }
+
     &__weather {
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    &__weather-description {
+      margin-right: 5px;
+    }
+
+    &__weather-icon {
+      /*background: url("http://openweathermap.org/img/wn/01n.png");*/
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        height: 30px;
+        width: 30px;
+      }
     }
   }
 

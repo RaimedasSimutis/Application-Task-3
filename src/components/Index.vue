@@ -142,6 +142,7 @@ export default {
   flex-direction: column;
   height: 100%;
   position: relative;
+  background: linear-gradient(90deg, rgba(70,86,99,1) 0%, rgba(97,102,94,1) 50%, rgba(92,101,117,1) 100%);
 }
 
 </style>

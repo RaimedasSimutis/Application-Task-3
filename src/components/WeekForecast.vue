@@ -54,7 +54,7 @@ export default {
     &__content {
       display: flex;
       justify-content: space-between;
-      background-color: $bg-grey;
+      //background-color: $bg-grey;
     }
 
     &__stats {
