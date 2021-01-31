@@ -18,7 +18,7 @@
       :description="currentCityData.description"
     />
     <week-forecast
-      title="Week forecast"
+      title="Week Forecast"
       :weatherData="weekForecastData"
     />
     <search
