@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <loader :active="loading"/>
     <navigation-bar
       :left-button-data="leftNavButtonData"
       :right-button-data="rightNavButtonData"
@@ -38,10 +39,11 @@ import Search from './Search'
 import CITIES_LIST from '../citiesSample.json'
 import WEEK_DAYS from '../weekDays.json'
 import TitleWithStats from './TitleWithStats'
+import Loader from './Loader'
 
 export default {
   name: 'Index',
-  components: { TitleWithStats, Search, NavigationBar, CurrentWeather, WeekForecast },
+  components: { Loader, TitleWithStats, Search, NavigationBar, CurrentWeather, WeekForecast },
   props: {
     msg: String
   },
@@ -62,6 +64,9 @@ export default {
     }
   },
   computed: {
+    loading () {
+      return this.$store.state.loading
+    },
     currentCityData () {
       const data = this.$store.state.currentWeatherData
 
@@ -140,7 +145,7 @@ export default {
   flex-direction: column;
   height: 100%;
   position: relative;
-  background: linear-gradient(90deg, rgba(70,86,99,1) 0%, rgba(97,102,94,1) 50%, rgba(92,101,117,1) 100%);
+  background: linear-gradient(90deg, $bg-grey-1 0%, $bg-grey-2 50%, $bg-grey-3 100%);
 }
 
 </style>

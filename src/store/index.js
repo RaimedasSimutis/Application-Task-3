@@ -20,7 +20,8 @@ export default new Vuex.Store({
       enableHighAccuracy: true,
       timeout: 5000,
       maximumAge: 0
-    }
+    },
+    loading: false
     // temperatureUnit: 'celsius'
   },
   getters: {
@@ -31,6 +32,9 @@ export default new Vuex.Store({
     },
     SET_FORECAST_WEATHER (state, payload) {
       state.forecastWeatherData = payload
+    },
+    SET_LOADING (state, payload) {
+      state.loading = payload
     }
     // SET_CITY(state, cityName) {
     //
@@ -42,6 +46,7 @@ export default new Vuex.Store({
   },
   actions: {
     fetchWeather ({ commit, state, dispatch }, userCityCords) {
+      dispatch('updateLoaderStatus', true)
       Promise.all([
         dispatch('fetchCurrentWeather', userCityCords),
         dispatch('fetchForecastWeather', userCityCords)
@@ -51,6 +56,9 @@ export default new Vuex.Store({
         })
         .catch(reason => {
           console.log('data failet to retreive')
+        })
+        .finally(() => {
+          dispatch('updateLoaderStatus', false)
         })
     },
     fetchForecastWeather ({ commit, state }, cityCoords) {
@@ -88,6 +96,9 @@ export default new Vuex.Store({
       }
 
       return navigator.geolocation.getCurrentPosition(success, error, state.geolocationOptions)
+    },
+    updateLoaderStatus ({ commit, state }, status) {
+      commit('SET_LOADING', status)
     }
   },
   modules: {
