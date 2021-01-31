@@ -1,0 +1,212 @@
+[
+  {
+    "id": 8224935,
+    "name": "Magwi County",
+    "state": "",
+    "country": "SS",
+    "coord": {
+      "lon": 32.301479,
+      "lat": 4.12532
+    }
+  },
+  {
+    "id": 8226430,
+    "name": "Dongji",
+    "state": "",
+    "country": "CN",
+    "coord": {
+      "lon": 122.680702,
+      "lat": 30.1959
+    }
+  },
+  {
+    "id": 8226876,
+    "name": "Longqiu",
+    "state": "",
+    "country": "CN",
+    "coord": {
+      "lon": 119.512741,
+      "lat": 32.829189
+    }
+  },
+  {
+    "id": 8226906,
+    "name": "Situ",
+    "state": "",
+    "country": "CN",
+    "coord": {
+      "lon": 119.637779,
+      "lat": 32.888531
+    }
+  },
+  {
+    "id": 8227002,
+    "name": "Jiulonghu",
+    "state": "",
+    "country": "CN",
+    "coord": {
+      "lon": 121.560364,
+      "lat": 30.04281
+    }
+  },
+  {
+    "id": 8235911,
+    "name": "Xinshao",
+    "state": "",
+    "country": "CN",
+    "coord": {
+      "lon": 113.606911,
+      "lat": 24.808929
+    }
+  },
+  {
+    "id": 8246755,
+    "name": "Yangshan",
+    "state": "",
+    "country": "CN",
+    "coord": {
+      "lon": 122.076851,
+      "lat": 30.59416
+    }
+  },
+  {
+    "id": 8247183,
+    "name": "Borovlyany",
+    "state": "",
+    "country": "BY",
+    "coord": {
+      "lon": 27.6754,
+      "lat": 54.002201
+    }
+  },
+  {
+    "id": 8247406,
+    "name": "Lyeskawka",
+    "state": "",
+    "country": "BY",
+    "coord": {
+      "lon": 27.7108,
+      "lat": 54.002399
+    }
+  },
+  {
+    "id": 8247407,
+    "name": "Lyasny",
+    "state": "",
+    "country": "BY",
+    "coord": {
+      "lon": 27.696301,
+      "lat": 54.007198
+    }
+  },
+  {
+    "id": 8247409,
+    "name": "Bal’shavik",
+    "state": "",
+    "country": "BY",
+    "coord": {
+      "lon": 27.5669,
+      "lat": 54.003601
+    }
+  },
+  {
+    "id": 8256205,
+    "name": "Usiazh",
+    "state": "",
+    "country": "BY",
+    "coord": {
+      "lon": 28.006981,
+      "lat": 54.075981
+    }
+  },
+  {
+    "id": 8256270,
+    "name": "Октябрьский",
+    "state": "",
+    "country": "BY",
+    "coord": {
+      "lon": 28.19813,
+      "lat": 54.040588
+    }
+  },
+  {
+    "id": 8259949,
+    "name": "Vallenar",
+    "state": "",
+    "country": "CL",
+    "coord": {
+      "lon": -70.255508,
+      "lat": -28.51576
+    }
+  },
+  {
+    "id": 8260052,
+    "name": "Pontyclun",
+    "state": "",
+    "country": "GB",
+    "coord": {
+      "lon": -3.39145,
+      "lat": 51.521622
+    }
+  },
+  {
+    "id": 8260056,
+    "name": "Pentre",
+    "state": "",
+    "country": "GB",
+    "coord": {
+      "lon": -3.49133,
+      "lat": 51.654289
+    }
+  },
+  {
+    "id": 8260059,
+    "name": "Catterick Garrison",
+    "state": "",
+    "country": "GB",
+    "coord": {
+      "lon": -1.72232,
+      "lat": 54.37748
+    }
+  },
+  {
+    "id": 8247407,
+    "name": "Vilnius",
+    "state": "",
+    "country": "BY",
+    "coord": {
+      "lon": 27.696301,
+      "lat": 54.007198
+    }
+  },
+  {
+    "id": 8247407,
+    "name": "Kaunas",
+    "state": "",
+    "country": "BY",
+    "coord": {
+      "lon": 27.696301,
+      "lat": 54.007198
+    }
+  },
+  {
+    "id": 8247407,
+    "name": "Klaipeda",
+    "state": "",
+    "country": "BY",
+    "coord": {
+      "lon": 27.696301,
+      "lat": 54.007198
+    }
+  },
+  {
+    "id": 8247407,
+    "name": "Gargzdai",
+    "state": "",
+    "country": "BY",
+    "coord": {
+      "lon": 27.696301,
+      "lat": 54.007198
+    }
+  }
+]
