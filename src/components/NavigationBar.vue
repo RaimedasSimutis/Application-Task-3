@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar">
-    <div class="navbar__button-container">
+    <div class="navbar__button-container navbar__button-container--left">
       <a v-if="leftButtonData" @click="buttonClick('left')">
         <i v-if="leftButtonData.icon" class="fas" :class="leftButtonData.icon"></i>
         <span v-if="leftButtonData.title" :class="leftButtonData.customTitleClass">
@@ -16,7 +16,7 @@
         {{subtitle}}
       </div>
     </div>
-    <div class="navbar__button-container">
+    <div class="navbar__button-container navbar__button-container--right">
       <a v-if="rightButtonData" @click="buttonClick('right')">
         <i v-if="rightButtonData.icon" class="fas" :class="rightButtonData.icon"></i>
         <span v-if="rightButtonData.title" :class="rightButtonData.customTitleClass">
@@ -64,13 +64,22 @@ export default {
     background: #3A424C;
     display: flex;
     justify-content: space-between;
+    padding: 0 10px;
 
     &__button-container {
       min-width: 50px;
       display: flex;
-      justify-content: center;
+
       align-items: center;
       color: #54C9F9;
+
+      &--left {
+        justify-content: flex-start;
+      }
+
+      &--right {
+        justify-content: flex-end;
+      }
     }
 
     &__middle-container {
