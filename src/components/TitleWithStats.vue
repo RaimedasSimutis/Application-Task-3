@@ -38,6 +38,8 @@ export default {
     background-color: $bg-grey;
     display: flex;
     justify-content: space-between;
+    padding: 10px 10px;
+    font-size: 14px;
 
     &__records {
       display: flex;

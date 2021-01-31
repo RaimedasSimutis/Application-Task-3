@@ -19,6 +19,7 @@ export default {
 <style lang="scss">
   @import "styles/normalize.css";
   @import "styles/style.scss";
+  @import "styles/fonts.scss";
 
 #app {
   width: 100vw;

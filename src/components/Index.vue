@@ -3,7 +3,7 @@
     <navigation-bar
       :left-button-data="leftNavButtonData"
       :right-button-data="rightNavButtonData"
-      title="Weather forecast"
+      title="Weather Forecast"
       :subtitle="currentCityData.location"
       @leftButtonClick="onLeftNavClick"
     />

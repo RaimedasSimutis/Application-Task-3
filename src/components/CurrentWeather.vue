@@ -48,7 +48,7 @@ export default {
 
   .current-weather {
     flex-grow: 1;
-    background: #ec0855;
+    background: $bg-grey-light;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -80,6 +80,11 @@ export default {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      font-size: 11px;
+    }
+
+    &__middle-subtitle {
+      color: $text-grey-light;
     }
   }
 </style>
