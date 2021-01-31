@@ -85,14 +85,11 @@ export default new Vuex.Store({
           lat: pos.coords.latitude,
           lon: pos.coords.longitude
         }
-        // commit('SET_CITY_CORDS', userCityCords)
         dispatch('fetchWeather', userCityCords)
       }
 
       function error (err) {
         console.warn(`ERROR(${err.code}): ${err.message}`)
-        // commit('SET_CITY_CORDS', state.defaultCityCords)
-        dispatch('fetchWeather', state.defaultCityCords)
       }
 
       return navigator.geolocation.getCurrentPosition(success, error, state.geolocationOptions)

@@ -115,8 +115,9 @@ export default {
       }
     }
   },
-  async created () {
-    await this.$store.dispatch('getUserLocation')
+  created () {
+    this.$store.dispatch('fetchWeather', this.$store.state.default.cityCoords)
+    this.$store.dispatch('getUserLocation')
   },
   methods: {
     onLeftNavClick () {
