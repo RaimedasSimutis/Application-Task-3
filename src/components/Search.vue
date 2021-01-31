@@ -16,8 +16,18 @@
       </div>
       <div class="search__results-container">
         <div v-if="results">
-          <div v-for="(result, index) in results" :key="index" @click="closeSearch(result)">
-            {{result.name}}
+          <div
+            class="search__result-row"
+            v-for="(result, index) in results"
+            :key="index"
+            @click="closeSearch(result)"
+          >
+            <div class="search__result-text"
+                 v-html="highlightMatchingText(result.name)"
+            >
+
+            </div>
+<!--            {{highlightMatchingText(result.name)}}-->
           </div>
         </div>
         <div class="search__no-results" v-else>
@@ -55,7 +65,6 @@ export default {
   },
   data () {
     return {
-      // results: null,
       inputValue: '',
       isActive: false,
       leftNavButtonData: {
@@ -67,9 +76,6 @@ export default {
   computed: {
     results () {
       if (this.options && this.inputValue) {
-        // return this.options.filter((option) => {
-        //   return option.name.includes(this.inputValue)
-        // })
         const filterResults = []
 
         for (let index = 0; index < this.options.length; index++) {
@@ -84,6 +90,7 @@ export default {
           }
         }
 
+        console.log(filterResults)
         return filterResults.length ? filterResults : null
       }
       return null
@@ -98,6 +105,15 @@ export default {
         this.$emit('selected', selectedData)
       }
       this.isActive = false
+    },
+    highlightMatchingText (name) {
+      const inputText = this.inputValue.toLowerCase()
+      const cityName = name.toLowerCase()
+      const matchingStringIndex = cityName.indexOf(inputText)
+      const stringBeforeMatch = name.slice(0, matchingStringIndex)
+      const matchingString = name.slice(matchingStringIndex, matchingStringIndex + inputText.length)
+      const stringAfterMatch = name.slice(matchingStringIndex + inputText.length)
+      return `${stringBeforeMatch}<span style="color: #FFFFFF">${matchingString}</span>${stringAfterMatch}`
     }
   }
 }
@@ -151,6 +167,20 @@ export default {
 
     &__results-container {
       height: calc(100% - 61px);
+      padding-left: 15px;
+    }
+
+    &__result-row {
+      height: 35px;
+      border-bottom: 1px solid $border-grey;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+
+    }
+
+    &__result-text {
+      color: $text-grey-light;
     }
 
     &__no-results {
