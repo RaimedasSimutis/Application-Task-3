@@ -3,7 +3,6 @@
     <div class="title-with-stats__title">
       {{ title }}
     </div>
-
     <div v-if="stats" class="title-with-stats__records">
       <div
         v-for="(record, index) in stats"

@@ -20,7 +20,7 @@
           <div class="forecast-week__stat">
             {{day.temperatureDay}}
           </div>
-          <div class="forecast-week__stat">
+          <div class="forecast-week__stat forecast-week__stat--darken">
             {{day.temperatureNight}}
           </div>
         </div>
@@ -57,7 +57,6 @@ export default {
       display: flex;
       justify-content: space-between;
       padding: 10px;
-      //background-color: $bg-grey;
     }
 
     &__day-forecast {
@@ -86,6 +85,14 @@ export default {
     &__stats {
       display: flex;
       justify-content: space-around;
+    }
+
+    &__stat {
+      font-size: 10px;
+
+      &--darken {
+        color: $text-grey-light;
+      }
     }
 
     &__stat {

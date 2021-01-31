@@ -90,7 +90,7 @@ export default {
         },
         {
           value: forecastWeatherData ? Math.round(forecastWeatherData[0].temp.night) : '-',
-          customClass: ''
+          customClass: 'text-darken'
         }
       ]
     },
