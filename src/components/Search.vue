@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="search__results-container">
-        <div v-if="results">
+        <div class="search__results" v-if="results">
           <div
             class="search__result-row"
             v-for="(result, index) in results"
@@ -107,6 +107,9 @@ export default {
       this.isActive = false
     },
     highlightMatchingText (name) {
+      if (!name) {
+        return
+      }
       const inputText = this.inputValue.toLowerCase()
       const cityName = name.toLowerCase()
       const matchingStringIndex = cityName.indexOf(inputText)
@@ -167,6 +170,9 @@ export default {
 
     &__results-container {
       height: calc(100% - 61px);
+    }
+
+    &__results {
       padding-left: 15px;
     }
 

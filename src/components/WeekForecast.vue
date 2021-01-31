@@ -85,7 +85,7 @@ export default {
 
     &__stats {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
     }
 
     &__stat {

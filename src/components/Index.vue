@@ -25,7 +25,7 @@
       ref="search-ref"
       title="Location"
       :subtitle="currentCityData.location"
-      :options="CITIES_TEST" @selected="citySelected"
+      :options="CITIES_LIST" @selected="citySelected"
     />
   </div>
 </template>
@@ -35,8 +35,7 @@ import WeekForecast from './WeekForecast'
 import CurrentWeather from './CurrentWeather'
 import NavigationBar from './NavigationBar'
 import Search from './Search'
-import CITIES_LIST from '../citiesList.json'
-import CITIES_TEST from '../citiesTest.json'
+import CITIES_LIST from '../citiesSample.json'
 import WEEK_DAYS from '../weekDays.json'
 import TitleWithStats from './TitleWithStats'
 
@@ -49,7 +48,6 @@ export default {
   data () {
     return {
       CITIES_LIST,
-      CITIES_TEST,
       WEEK_DAYS,
       leftNavButtonData: {
         title: '',

@@ -83,6 +83,10 @@ export default {
       font-size: 11px;
     }
 
+    &__middle-title {
+      margin-bottom: 3px;
+    }
+
     &__middle-subtitle {
       color: $text-grey-light;
     }

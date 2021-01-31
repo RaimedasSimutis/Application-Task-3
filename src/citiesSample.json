@@ -1,0 +1,102 @@
+[
+  {
+    "id": 593116,
+    "name": "Vilnius",
+    "state": "",
+    "country": "LT",
+    "coord": {
+      "lon": 25.2798,
+      "lat": 54.689159
+    }
+  },
+  {
+    "id": 598316,
+    "name": "Kaunas",
+    "state": "",
+    "country": "LT",
+    "coord": {
+      "lon": 23.9,
+      "lat": 54.900002
+    }
+  },
+  {
+    "id": 864478,
+    "name": "Klaipėda County",
+    "state": "",
+    "country": "LT",
+    "coord": {
+      "lon": 21.33333,
+      "lat": 55.666672
+    }
+  },
+  {
+    "id": 1850147,
+    "name": "Tokyo",
+    "state": "",
+    "country": "JP",
+    "coord": {
+      "lon": 139.691711,
+      "lat": 35.689499
+    }
+  },
+  {
+    "id": 5128581,
+    "name": "New York City",
+    "state": "NY",
+    "country": "US",
+    "coord": {
+      "lon": -74.005966,
+      "lat": 40.714272
+    }
+  },
+  {
+    "id": 5162774,
+    "name": "Miami County",
+    "state": "OH",
+    "country": "US",
+    "coord": {
+      "lon": -84.233276,
+      "lat": 40.050049
+    }
+  },
+  {
+    "id": 6455259,
+    "name": "Paris",
+    "state": "",
+    "country": "FR",
+    "coord": {
+      "lon": 2.35236,
+      "lat": 48.856461
+    }
+  },
+  {
+    "id": 3128760,
+    "name": "Barcelona",
+    "state": "",
+    "country": "ES",
+    "coord": {
+      "lon": 2.15899,
+      "lat": 41.38879
+    }
+  },
+  {
+    "id": 3173435,
+    "name": "Milan",
+    "state": "",
+    "country": "IT",
+    "coord": {
+      "lon": 9.18951,
+      "lat": 45.464272
+    }
+  },
+  {
+    "id": 524894,
+    "name": "Moscow",
+    "state": "",
+    "country": "RU",
+    "coord": {
+      "lon": 37.606667,
+      "lat": 55.761665
+    }
+  }
+]
