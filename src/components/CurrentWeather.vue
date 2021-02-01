@@ -10,7 +10,7 @@
       <div class="current-weather__weather-description">
         {{description}}
       </div>
-      <div class="current-weather__weather-icon">
+      <div v-if="icon" class="current-weather__weather-icon">
         <img :src="`http://openweathermap.org/img/wn/${icon}.png`" alt="weather-icon"/>
       </div>
     </div>
@@ -76,7 +76,6 @@ export default {
     }
 
     &__weather-icon {
-      /*background: url("http://openweathermap.org/img/wn/01n.png");*/
       width: 20px;
       height: 20px;
       display: flex;

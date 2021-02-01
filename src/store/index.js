@@ -13,16 +13,14 @@ export default new Vuex.Store({
       },
       units: 'metric'
     },
-    currentWeatherData: null,
-    forecastWeatherData: null,
-    // currentCity: null,
     geolocationOptions: {
       enableHighAccuracy: true,
       timeout: 5000,
       maximumAge: 0
     },
+    currentWeatherData: null,
+    forecastWeatherData: null,
     loading: false
-    // temperatureUnit: 'celsius'
   },
   getters: {
   },
@@ -36,13 +34,6 @@ export default new Vuex.Store({
     SET_LOADING (state, payload) {
       state.loading = payload
     }
-    // SET_CITY(state, cityName) {
-    //
-    // }
-    // SET_CITY_CORDS (state, payload) {
-    //   const { lat, lon } = payload
-    //   state.currentCity = { lat, lon }
-    // }
   },
   actions: {
     fetchWeather ({ commit, state, dispatch }, userCityCords) {
@@ -52,10 +43,9 @@ export default new Vuex.Store({
         dispatch('fetchForecastWeather', userCityCords)
       ])
         .then(response => {
-          console.log('data retreived')
         })
         .catch(reason => {
-          console.log('data failet to retreive')
+          console.log('Failed to fetch data', reason)
         })
         .finally(() => {
           dispatch('updateLoaderStatus', false)
@@ -75,11 +65,10 @@ export default new Vuex.Store({
       const key = process.env.VUE_APP_WEATHER_API_KEY
       return axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${state.default.units}&appid=${key}`)
         .then(response => {
-          // commit('SET_CITY', userCityCords)
           commit('SET_CURRENT_WEATHER', response.data)
         })
     },
-    getUserLocation ({ commit, state, dispatch }) {
+    getUserLocation ({ state, dispatch }) {
       function success (pos) {
         const userCityCords = {
           lat: pos.coords.latitude,

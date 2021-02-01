@@ -21,8 +21,9 @@
             :key="index"
             @click="closeSearch(result)"
           >
-            <div class="search__result-text"
-                 v-html="highlightMatchingText(result.name)"
+            <div
+              class="search__result-text"
+              v-html="highlightMatchingText(result.name)"
             >
             </div>
           </div>

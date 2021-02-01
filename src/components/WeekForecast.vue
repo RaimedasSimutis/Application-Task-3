@@ -11,9 +11,8 @@
           {{ day.day }}
         </div>
 
-        <div class="forecast-week__icon">
-<!--          {{ day.icon }}-->
-          <img :src="`http://openweathermap.org/img/wn/${day.icon}.png`" alt="icn"/>
+        <div v-if="day.icon" class="forecast-week__icon">
+          <img  :src="`http://openweathermap.org/img/wn/${day.icon}.png`" alt="icn"/>
         </div>
 
         <div class="forecast-week__stats">
@@ -26,10 +25,6 @@
         </div>
       </div>
     </div>
-    <div v-else>
-      No data
-    </div>
-
   </section>
 </template>
 
