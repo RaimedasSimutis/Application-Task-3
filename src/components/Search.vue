@@ -137,28 +137,28 @@ export default {
     width: 100vw;
     top: 0;
     right: 0;
-    background-color: #4E555E;
+    background-color: $bg-grey-light;
     display: flex;
     flex-direction: column;
 
     &__input-container {
       padding: 7px;
       position: relative;
-      background-color: #3A424C;
+      background-color: $bg-grey;
     }
 
     &__input {
       width: 100%;
       border-radius: 5px;
-      border: 1px solid #4C9FC7;
-      background-color: #484F58;
-      color: #FFFFFF;
+      border: 1px solid $border-blue;
+      background-color: $bg-grey-4;
+      color: $text-white;
       font-size: 12px;
       line-height: 24px;
       padding: 0 24px;
 
       &::placeholder {
-        color: #9FA0A5;
+        color: $text-grey-light;
       }
     }
 

@@ -61,7 +61,7 @@ export default {
 <style scoped lang="scss">
   .navbar {
     height: 35px;
-    background: #3A424C;
+    background: $bg-grey;
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
@@ -71,7 +71,7 @@ export default {
       display: flex;
 
       align-items: center;
-      color: #54C9F9;
+      color: $text-blue;
 
       &--left {
         justify-content: flex-start;
