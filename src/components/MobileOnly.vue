@@ -58,6 +58,7 @@ export default {
 
     &__image {
       width: 60%;
+      height: 50vh;
     }
   }
 </style>
