@@ -11,7 +11,7 @@ Just a small weather app with basic functionality. It uses [OpenWeather](https:/
 
 
 ## Task
-- Get current weather from API for users city if user allowed to access thiers location, if
+- Get current weather from API for users city if user allowed to access theirs location, if
 not fallback to Vilnius, Lithuania;
 - Get forecast for a week;
 - Allow user to select city from a list of cities (with instant filtering as user types);
