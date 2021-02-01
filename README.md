@@ -7,8 +7,8 @@ Just a small weather app with basic functionality. It uses [OpenWeather](https:/
 [DEMO](https://application-task-3.vercel.app/)
 
 ## Things to improve
-- Cities list is huuuuge and has massive negative impact on performance. City suggestions could be refactored with API requests;
-
+- Cities list is huuuuge and has negative impact on performance. City suggestions could be refactored with API requests; :boom:
+- FE styling has some imperfections. :scream:
 
 ## Task
 - Get current weather from API for users city if user allowed to access theirs location, if
