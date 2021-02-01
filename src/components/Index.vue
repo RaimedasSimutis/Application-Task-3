@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <loader :active="loading"/>
+    <mobile-only />
     <navigation-bar
       :left-button-data="leftNavButtonData"
       :right-button-data="rightNavButtonData"
@@ -41,10 +42,11 @@ import CITIES_LIST from '../citiesSample.json'
 import WEEK_DAYS from '../weekDays.json'
 import TitleWithStats from './TitleWithStats'
 import Loader from './Loader'
+import MobileOnly from './MobileOnly'
 
 export default {
   name: 'Index',
-  components: { Loader, TitleWithStats, Search, NavigationBar, CurrentWeather, WeekForecast },
+  components: { MobileOnly, Loader, TitleWithStats, Search, NavigationBar, CurrentWeather, WeekForecast },
   props: {
     msg: String
   },
