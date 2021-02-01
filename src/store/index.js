@@ -55,6 +55,7 @@ export default new Vuex.Store({
       const { lat, lon } = cityCoords
       const exclude = 'minutely,hourly,current'
       const key = process.env.VUE_APP_WEATHER_API_KEY
+      commit('SET_FORECAST_WEATHER', null)
       return axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&units=${state.default.units}&appid=${key}`)
         .then(response => {
           commit('SET_FORECAST_WEATHER', response.data.daily)

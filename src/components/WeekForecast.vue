@@ -25,14 +25,16 @@
         </div>
       </div>
     </div>
+    <chart v-if="weatherData && weatherData.length" style="height: 35px" :chartdata="chartData" :options="chartOptions"/>
   </section>
 </template>
 
 <script>
 import TitleWithStats from './TitleWithStats'
+import Chart from './Chart'
 export default {
   name: 'WeekForecast',
-  components: { TitleWithStats },
+  components: { Chart, TitleWithStats },
   props: {
     weatherData: {
       type: Array,
@@ -40,6 +42,77 @@ export default {
     },
     title: {
       type: String
+    }
+  },
+  data () {
+    return {
+      chartOptions: {
+        responsive: true,
+        maintainAspectRatio: false,
+        aspectRatio: 4,
+        legend: {
+          display: false
+        },
+        scaleLabel: {
+          display: false
+        },
+        scales: {
+          yAxes: [{
+            display: false,
+            ticks: {
+              beginAtZero: true
+            },
+            gridLines: {
+              drawBorder: false
+            }
+          }],
+          xAxes: [{
+            display: false,
+            categoryPercentage: 1,
+            barPercentage: 0.98,
+            gridLines: {
+              drawBorder: false
+            }
+          }]
+        }
+      }
+    }
+  },
+  computed: {
+    chartData () {
+      return {
+        // labels: ['1', '1', '1', '1', '1', '1', '1'],
+        labels: this.weatherData.map(day => day.day),
+        datasets: [
+          {
+            label: 'Day',
+            backgroundColor: '#AC8142',
+            borderColor: '#F1961C',
+            borderSkipped: 'bottom',
+            borderWidth: {
+              top: 2,
+              right: 0,
+              bottom: 2,
+              left: 0
+            },
+            // data: [25, 20, 40, -20, 40, 20, 40]
+            data: this.weatherData.map(day => day.temperatureDay)
+          },
+          {
+            label: 'Night',
+            backgroundColor: '#667997',
+            borderColor: '#6B87BC',
+            borderSkipped: 'bottom',
+            borderWidth: {
+              top: 2,
+              right: 0,
+              bottom: 2,
+              left: 0
+            },
+            data: this.weatherData.map(day => day.temperatureNight)
+          }
+        ]
+      }
     }
   }
 }
@@ -51,7 +124,7 @@ export default {
     &__content {
       display: flex;
       justify-content: space-between;
-      padding: 10px;
+      padding: 10px 10px 5px 10px;
     }
 
     &__day-forecast {
