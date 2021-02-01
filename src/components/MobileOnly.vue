@@ -13,7 +13,7 @@ export default {
     return {
       image,
       screenWidth: null,
-      activationValue: 400
+      activationValue: 425
     }
   },
   computed: {
