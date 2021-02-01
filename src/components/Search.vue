@@ -8,10 +8,13 @@
         @leftButtonClick="closeSearch"
       />
       <div class="search__input-container">
-        <input class="search__input" v-model="inputValue" :placeholder="placeholder">
-        <div class="search__icon-container">
+        <div class="search__icon-container search__icon-container--left">
           <i class="fas fa-search search__input-icon"></i>
         </div>
+        <input class="search__input" v-model="inputValue" :placeholder="placeholder">
+        <a class="search__icon-container search__icon-container--right" @click="emptyInput">
+          <i class="fas fa-times-circle search__input-icon"></i>
+        </a>
       </div>
       <div class="search__results-container">
         <div class="search__results" v-if="results">
@@ -29,7 +32,8 @@
           </div>
         </div>
         <div class="search__no-results" v-else>
-          {{noDataText}}
+          <p>{{noDataText}}</p>
+          <img class="search__no-results-image" :src="noDataImage" alt="no-results">
         </div>
       </div>
     </section>
@@ -38,6 +42,7 @@
 
 <script>
 import NavigationBar from './NavigationBar'
+import image from '../assets/images/no_data.svg'
 export default {
   name: 'Search',
   components: { NavigationBar },
@@ -65,6 +70,7 @@ export default {
     return {
       inputValue: '',
       isActive: false,
+      noDataImage: image,
       leftNavButtonData: {
         title: 'Done',
         icon: '',
@@ -116,6 +122,9 @@ export default {
       const matchingString = name.slice(matchingStringIndex, matchingStringIndex + inputText.length)
       const stringAfterMatch = name.slice(matchingStringIndex + inputText.length)
       return `${stringBeforeMatch}<span style="color: #FFFFFF">${matchingString}</span>${stringAfterMatch}`
+    },
+    emptyInput () {
+      this.inputValue = ''
     }
   }
 }
@@ -144,8 +153,8 @@ export default {
       border: 1px solid #4C9FC7;
       background-color: #484F58;
       color: #FFFFFF;
-      font-size: 10px;
-      line-height: 20px;
+      font-size: 12px;
+      line-height: 24px;
       padding: 0 24px;
 
       &::placeholder {
@@ -155,16 +164,24 @@ export default {
 
     &__icon-container{
       position: absolute;
-      top: 7px;
-      left: 14px;
-      height: 22px;
+      height: 24px;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      &--left {
+        top: 9px;
+        left: 14px;
+      }
+
+      &--right {
+        top: 9px;
+        right: 14px;
+      }
     }
 
     &__input-icon {
-      font-size: 10px;
+      font-size: 12px;
       color: #9E9FA4;
     }
 
@@ -192,8 +209,14 @@ export default {
     &__no-results {
       height: 100%;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+    }
+
+    &__no-results-image {
+      max-width: 80%;
+      max-height: 50vh;
     }
   }
 
